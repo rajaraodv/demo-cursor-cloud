@@ -7,7 +7,7 @@
   background: var(--surface);
   border-radius: 24px;
   padding: 2.5rem;
-  box-shadow: 0 20px 60px var(--shadow), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 60px var(--shadow), 0 0 0 1px rgba(0, 0, 0, 0.05);
   border: 1px solid var(--border);
   backdrop-filter: blur(10px);
 }
@@ -99,7 +99,7 @@
 .error-message {
   background: rgba(239, 68, 68, 0.15);
   border: 1px solid rgba(239, 68, 68, 0.3);
-  color: #fca5a5;
+  color: #dc2626;
   padding: 0.75rem 1rem;
   border-radius: 8px;
   margin-bottom: 1rem;
@@ -135,7 +135,7 @@
   border: 2px solid var(--border);
   border-radius: 12px;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .todo-item:hover {
