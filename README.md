@@ -17,9 +17,25 @@ A beautiful, modern todo list application built with React and Vite, powered by 
    npm install
    ```
 
-2. **Create a `.env` file** in the root directory with your database connection string:
-   ```
-   DATABASE_URL=postgresql://tsdbadmin:qrjmfs2b90cleq17@wa7obvl2n2.hles2ca4w9.tsdb.cloud.timescale.com:35097/tsdb?sslmode=require
+2. **Create a `.env` file** in the root directory with your configuration:
+   ```bash
+   # Required: Database connection string
+   DATABASE_URL=postgresql://tsdbadmin:your_password@your_host:port/tsdb?sslmode=require
+   
+   # Optional: Server port (defaults to 3001)
+   PORT=3001
+   
+   # Optional: For cloud deployments
+   # Frontend URL for CORS (defaults to http://localhost:3000)
+   FRONTEND_URL=http://localhost:3000
+   
+   # Optional: For Vite development proxy
+   # VITE_BACKEND_URL=http://localhost:3001
+   # VITE_PORT=3000
+   
+   # Optional: For cloud/production deployments
+   # Set to full backend URL when frontend and backend are on different hosts
+   # VITE_API_URL=https://api.example.com
    ```
 
 3. **Start the development servers:**
@@ -28,8 +44,31 @@ A beautiful, modern todo list application built with React and Vite, powered by 
    ```
 
    This will start both:
-   - Frontend server on `http://localhost:3000`
-   - Backend API server on `http://localhost:3001`
+   - Frontend server on `http://localhost:3000` (or port specified by `VITE_PORT`)
+   - Backend API server on `http://localhost:3001` (or port specified by `PORT`)
+
+## Environment Variables
+
+### Required
+- **`DATABASE_URL`** - PostgreSQL connection string for Tiger Cloud/TimescaleDB
+
+### Optional (Backend)
+- **`PORT`** - Backend server port (default: `3001`)
+- **`FRONTEND_URL`** or **`CORS_ORIGIN`** - Frontend URL for CORS configuration (default: `http://localhost:3000`)
+
+### Optional (Frontend - Vite)
+- **`VITE_PORT`** - Frontend server port (default: `3000`)
+- **`VITE_BACKEND_URL`** - Backend URL for Vite proxy in development (default: `http://localhost:3001`)
+- **`VITE_API_URL`** - Full backend API URL for cloud/production deployments. Leave empty for development (uses relative paths with Vite proxy). Set to full URL (e.g., `https://api.example.com`) when frontend and backend are on different hosts.
+
+### Cloud Deployment
+
+For cloud deployments where frontend and backend are on different hosts:
+
+1. Set `VITE_API_URL` to your backend URL (e.g., `https://api.yourdomain.com`)
+2. Set `FRONTEND_URL` or `CORS_ORIGIN` to your frontend URL (e.g., `https://yourdomain.com`)
+3. Ensure `DATABASE_URL` is set with your cloud database connection string
+4. Set `PORT` if your cloud platform requires a specific port
 
 ## Database
 

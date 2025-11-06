@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
+import { getApiUrl } from './config';
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -14,7 +15,7 @@ function App() {
   const fetchTodos = async () => {
     try {
       setLoading(true);
-      const response = await fetch('/api/todos');
+      const response = await fetch(getApiUrl('/api/todos'));
       if (!response.ok) throw new Error('Failed to fetch todos');
       const data = await response.json();
       setTodos(data);
@@ -32,7 +33,7 @@ function App() {
     if (!inputValue.trim()) return;
 
     try {
-      const response = await fetch('/api/todos', {
+      const response = await fetch(getApiUrl('/api/todos'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: inputValue }),
@@ -51,7 +52,7 @@ function App() {
 
   const toggleTodo = async (id, currentCompleted) => {
     try {
-      const response = await fetch(`/api/todos/${id}`, {
+      const response = await fetch(getApiUrl(`/api/todos/${id}`), {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ completed: !currentCompleted }),
@@ -69,7 +70,7 @@ function App() {
 
   const deleteTodo = async (id) => {
     try {
-      const response = await fetch(`/api/todos/${id}`, {
+      const response = await fetch(getApiUrl(`/api/todos/${id}`), {
         method: 'DELETE',
       });
 
