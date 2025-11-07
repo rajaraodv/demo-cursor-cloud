@@ -1,0 +1,61 @@
+# Cursor AI Rules for Todo List App
+
+## Project Overview
+This is a modern todo list application built with React, Vite, Express, and TimescaleDB (Tiger Cloud).
+
+## Tech Stack
+- **Frontend**: React 18, Vite
+- **Backend**: Node.js, Express
+- **Database**: Tiger Cloud (TimescaleDB/PostgreSQL)
+- **Styling**: Modern CSS with CSS Variables
+
+## Code Style Guidelines
+- Use ES6+ JavaScript features
+- Prefer arrow functions for React components
+- Use async/await for asynchronous operations
+- Follow REST API conventions for endpoints
+- Use meaningful variable and function names
+
+## Project Structure
+- `/server` - Backend Express API
+- `/src` - Frontend React application
+- `/src/App.jsx` - Main React component
+- `/server/index.js` - Express server with database connection
+
+## Important Files
+- `.env` - Environment variables (DATABASE_URL, PORT, FRONTEND_URL)
+- `package.json` - Dependencies and scripts
+- `vite.config.js` - Vite configuration with proxy setup
+
+## Database Schema
+Table: `todos`
+- id (SERIAL PRIMARY KEY)
+- text (TEXT)
+- completed (BOOLEAN)
+- created_at (TIMESTAMP)
+- updated_at (TIMESTAMP)
+
+## API Endpoints
+- GET /api/todos - Get all todos
+- POST /api/todos - Create a new todo
+- PUT /api/todos/:id - Update a todo
+- DELETE /api/todos/:id - Delete a todo
+
+## Development Commands
+- `npm run dev` - Start both frontend and backend
+- `npm run dev:server` - Start backend only
+- `npm run dev:client` - Start frontend only
+- `npm run build` - Build for production
+- `npm test` - Run tests
+
+## Environment Variables
+Required: DATABASE_URL
+Optional: PORT, FRONTEND_URL, VITE_PORT, VITE_BACKEND_URL, VITE_API_URL
+
+## Best Practices
+- Always validate database connections before operations
+- Use proper error handling in API routes
+- Keep frontend and backend concerns separated
+- Use environment variables for configuration
+- Follow React best practices (hooks, state management)
+
