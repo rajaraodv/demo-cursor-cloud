@@ -8,15 +8,15 @@
   --primary: #6366f1;
   --primary-dark: #4f46e5;
   --primary-light: #818cf8;
-  --background: #0a0e1a;
-  --surface: #151b28;
-  --surface-light: #1f2937;
-  --text: #f8fafc;
-  --text-secondary: #94a3b8;
-  --border: #1e293b;
+  --background: #ffffff;
+  --surface: #ffffff;
+  --surface-light: #f8f9fa;
+  --text: #1a1a1a;
+  --text-secondary: #6b7280;
+  --border: #e5e7eb;
   --success: #10b981;
   --danger: #ef4444;
-  --shadow: rgba(0, 0, 0, 0.5);
+  --shadow: rgba(0, 0, 0, 0.1);
 }
 
 body {
@@ -25,7 +25,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(135deg, #0a0e1a 0%, #151b28 50%, #1a1f2e 100%);
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f1f3f5 100%);
   min-height: 100vh;
   color: var(--text);
 }
